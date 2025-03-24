@@ -1,3 +1,4 @@
+import { OcrService } from './../services/ocr.service';
 import { Component } from '@angular/core';
 
 @Component({
@@ -8,6 +9,13 @@ import { Component } from '@angular/core';
 })
 export class Tab1Page {
 
-  constructor() {}
+  constructor(private readonly ocrService:OcrService ) {}
 
+  text: string = ''
+
+  async toggleOcr() {
+    console.log('Recognizing image...');
+    const text = await this.ocrService.recognizeImage();
+    this.text = text;
+  }
 }
