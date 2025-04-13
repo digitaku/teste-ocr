@@ -1,0 +1,26 @@
+<ion-content [fullscreen]="true">
+
+
+  <div class="camera-container" *ngIf="isCameraReady">
+    <div class="overlay-frame"></div>
+  </div>
+  <button class="close-button" (click)="closeModal()" *ngIf="isCameraReady">✕</button>
+  <div class="capture-container" *ngIf="isCameraReady">
+    <ion-button
+      shape="round"
+      class="capture-button"
+      (click)="captureImage()"
+      [disabled]="isProcessing">
+      <span>Capturar</span>
+      <ion-spinner
+        *ngIf="isProcessing"
+        slot="start"
+        name="crescent"
+      ></ion-spinner>
+    </ion-button>
+  </div>
+</ion-content>
+<div class="spinner-container" *ngIf="!isCameraReady">
+  <ion-spinner name="crescent" ></ion-spinner>
+</div>
+

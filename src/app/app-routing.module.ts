@@ -5,6 +5,10 @@ const routes: Routes = [
   {
     path: '',
     loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
+  },
+  {
+    path: 'camera-ocr',
+    loadComponent: () => import('./camera-overlay/camera-overlay.component').then((c)=> c.CameraOverlayComponent)
   }
 ];
 @NgModule({

@@ -13,5 +13,14 @@
     </ion-toolbar>
   </ion-header>
 
-  <app-explore-container name="Tab 2 page"></app-explore-container>
+  <ion-button (click)="iniciarCamera()">
+    Iniciar
+  </ion-button>
+  <img *ngIf="ocrService.imagemCortada" [src]="ocrService.imagemCortada" />
+  <p>
+    {{ocrService.err}}
+  </p>
+  <p>
+    {{ocrService.text}}
+  </p>
 </ion-content>
